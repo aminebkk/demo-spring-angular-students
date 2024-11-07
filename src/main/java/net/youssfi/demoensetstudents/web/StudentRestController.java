@@ -55,10 +55,16 @@ public class StudentRestController {
     public Payment getPaymentById(@PathVariable Long id){
         return paymentRepository.findById(id).get();
     }
+    // this is how I need to wdo with my entities
+    //
+    //
     @GetMapping("/students/{code}/payments")
     public List<Payment> paymentsByStudentCode(@PathVariable String code){
         return paymentRepository.findByStudentCode(code);
     }
+    //
+    //
+    //
     @GetMapping("/paymentsByStatus")
     public List<Payment> paymentsByStaus(@RequestParam PaymentStatus status){
         return paymentRepository.findByStatus(status);
